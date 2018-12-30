@@ -18,7 +18,7 @@
         {
             "label": "Build",
             "type": "shell",
-            "command": "g++ -std=c++11 -Wall -g ${file} -o a.out",
+            "command": "clang++ -std=c++11 -Wall -Werror -Wfatal-errors -g ${file} -o a.out",
             "problemMatcher": [
                 "$gcc"
             ]
