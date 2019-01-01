@@ -43,3 +43,46 @@ Already exists for 1
 Already exists for 2
 ```
 **/
+
+#include <iostream>
+#include <map>
+#include <set>
+#include <vector>
+
+using namespace std;
+
+class BusStops3 {
+  map<set<string>, int> buses;
+
+ public:
+  void add(vector<string> stops) {
+    set<string> stops_key(begin(stops), end(stops));
+    if (buses.count(stops_key) == 0) {
+      int number = buses.size() + 1;
+      buses[stops_key] = number;
+      cout << "New bus " << number << endl;
+    } else {
+      cout << "Already exists for " << buses[stops_key] << endl;
+    }
+  }
+};
+
+void handle(BusStops3& busStops) {
+  int n;
+  cin >> n;
+  vector<string> stops(n);
+  for (string& stop : stops) {
+    cin >> stop;
+  }
+  busStops.add(stops);
+}
+
+int main(int argc, char const* argv[]) {
+  BusStops3 busStops;
+  int q;
+  cin >> q;
+  for (; q > 0; q--) {
+    handle(busStops);
+  }
+  return 0;
+}

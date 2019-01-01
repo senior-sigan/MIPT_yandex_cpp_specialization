@@ -44,3 +44,57 @@ NO
 NO
 ```
 **/
+
+#include <iostream>
+#include <map>
+#include <set>
+
+using namespace std;
+
+class Synonymus {
+  map<string, set<string>> words;
+
+ public:
+  void add(string word1, string word2) {
+    words[word1].insert(word2);
+    words[word2].insert(word1);
+  }
+  void count(string word) {
+    cout << words[word].size() << endl;
+  }
+  void check(string word1, string word2) {
+    if (words[word1].count(word2) != 0) {
+      cout << "YES" << endl;
+    } else {
+      cout << "NO" << endl;
+    }
+  }
+};
+
+void handle(Synonymus& synonymus) {
+  string op;
+  cin >> op;
+  if (op == "ADD") {
+    string word1, word2;
+    cin >> word1 >> word2;
+    synonymus.add(word1, word2);
+  } else if (op == "COUNT") {
+    string word;
+    cin >> word;
+    synonymus.count(word);
+  } else if (op == "CHECK") {
+    string word1, word2;
+    cin >> word1 >> word2;
+    synonymus.check(word1, word2);
+  }
+}
+
+int main(int argc, char const* argv[]) {
+  Synonymus synonymus;
+  int q;
+  cin >> q;
+  for (; q > 0; q--) {
+    handle(synonymus);
+  }
+  return 0;
+}
