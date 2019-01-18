@@ -11,10 +11,6 @@ struct Context {
   std::string number;
 };
 
-ostream& operator<<(ostream& stream, const Context& ctx) {
-  return stream << "+" << ctx.country << "-" << ctx.city << "-" << ctx.number;
-}
-
 class Handler {
  public:
   virtual void act(char ch, Context& ctx) const = 0;
@@ -121,7 +117,9 @@ string PhoneNumber::GetLocalNumber() const {
 string PhoneNumber::GetInternationalNumber() const {
   return "+" + country_code_ + "-" + city_code_ + "-" + local_number_;
 }
-
+// ostream& operator<<(ostream& stream, const Context& ctx) {
+//   return stream << "+" << ctx.country << "-" << ctx.city << "-" << ctx.number;
+// }
 // void parse(const string& num) {
 //   inner::Automata a;
 //   try {
