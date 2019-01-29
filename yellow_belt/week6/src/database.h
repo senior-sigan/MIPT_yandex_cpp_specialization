@@ -10,12 +10,12 @@ class Database {
   void Add(const Date& date, const std::string event);
 
   template<typename BinaryPredicate>
-  int RemoveIf(BinaryPredicate preicate) {
+  int RemoveIf(BinaryPredicate predicate) {
     return 0;
   }
 
   template<typename BinaryPredicate>
-  std::vector<std::string> FindIf(BinaryPredicate preicate) {
+  std::vector<std::string> FindIf(BinaryPredicate predicate) {
     return {};
   }
 
