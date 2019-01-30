@@ -30,7 +30,7 @@ bool LogicalOperationNode::Evaluate(const Date &date, const std::string &s) cons
   cerr << "Unknown LogicalOperation" << endl;
   return false;
 }
-bool Node::Evaluate(const Date &date, const std::string &s) const {
-  cout << "Node.Evaluate " << date << " " << s << endl;
-  return false;
-}
+//bool Node::Evaluate(const Date &date, const std::string &s) const {
+//  cout << "Node.Evaluate " << date << " " << s << endl;
+//  return false;
+//}

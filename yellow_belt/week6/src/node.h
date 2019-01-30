@@ -6,10 +6,14 @@
 
 class Node {
  public:
-  virtual bool Evaluate(const Date &date, const std::string &s) const;
+  virtual bool Evaluate(const Date &date, const std::string &s) const = 0;
   virtual ~Node() = default;
 };
-class EmptyNode : public Node {};
+class EmptyNode : public Node {
+  bool Evaluate(const Date &date, const std::string &s) const override {
+    return true;
+  }
+};
 
 enum class Comparison { Less, LessOrEqual, Greater, GreaterOrEqual, Equal, NotEqual };
 enum class LogicalOperation { And, Or };
