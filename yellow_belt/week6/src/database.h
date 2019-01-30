@@ -19,18 +19,21 @@ class Database {
   template<typename BinaryPredicate>
   int RemoveIf(BinaryPredicate predicate) {
     int removed = 0;
+    std::set<Date> empty_keys;
     for (const auto &kv : db_ordered) {
       const auto &date = kv.first;
       auto &vec = db_ordered[date];
       auto to_delete = std::stable_partition(begin(vec), end(vec),
-                                             [predicate, date](const std::string &ev) { return predicate(date, ev); });
-      auto len = to_delete - begin(vec);
-      removed += len;
-      vec.erase(begin(vec), to_delete);
+                                             [predicate, date](const std::string &ev) { return !predicate(date, ev); });
+      removed += end(vec) - to_delete;
+      vec.erase(to_delete, end(vec));
+      db[date] = std::set<std::string>(begin(vec), end(vec));
+      if (vec.empty()) empty_keys.insert(date);
+    }
 
-      if (len > 0) {
-        db[date] = std::set<std::string>(begin(vec), end(vec));
-      }
+    for (const auto &k: empty_keys) {
+      db.erase(k);
+      db_ordered.erase(k);
     }
 
     return removed;
