@@ -39,10 +39,7 @@ class Date {
     return !(*this < rhs);
   }
 
-  friend std::ostream &operator<<(std::ostream &os, const Date &date) {
-    os << date.year << "-" << date.month << "-" << date.day;
-    return os;
-  }
+  friend std::ostream &operator<<(std::ostream &os, const Date &date);
 };
 
 Date ParseDate(std::istream &is);
