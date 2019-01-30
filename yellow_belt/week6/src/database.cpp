@@ -1,4 +1,7 @@
 #include "database.h"
+#include "date.h"
+
+using namespace std;
 
 void Database::Add(const Date &date, const std::string event) {
 

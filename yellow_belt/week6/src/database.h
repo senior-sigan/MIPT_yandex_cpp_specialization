@@ -3,7 +3,8 @@
 #include <iostream>
 #include <string>
 #include <vector>
-#include "date.h"
+
+class Date;
 
 class Database {
  public:

@@ -1,5 +1,7 @@
 #include "condition_parser.h"
 #include "token.h"
+#include "node.h"
+#include "date.h"
 
 #include <map>
 using namespace std;
