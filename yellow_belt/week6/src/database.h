@@ -3,12 +3,14 @@
 #include <iostream>
 #include <string>
 #include <vector>
-
-class Date;
+#include <map>
+#include <set>
+#include "date.h"
 
 class Database {
+  std::map<Date, std::set<std::string>> db;
  public:
-  void Add(const Date& date, const std::string event);
+  void Add(const Date& date, const std::string& event);
 
   template<typename BinaryPredicate>
   int RemoveIf(BinaryPredicate predicate) {

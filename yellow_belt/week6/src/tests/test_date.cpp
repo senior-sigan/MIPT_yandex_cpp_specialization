@@ -1,3 +1,4 @@
+#include "tests.h"
 #include "../date.h"
 #include "test_runner.h"
 #include <stdexcept>

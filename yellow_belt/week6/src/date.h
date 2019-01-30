@@ -43,5 +43,3 @@ class Date {
 };
 
 Date ParseDate(std::istream &is);
-
-void TestDateParser();

@@ -2,6 +2,7 @@
 #include "test_runner.h"
 #include "../node.h"
 #include "../date.h"
+#include "tests.h"
 
 using namespace std;
 

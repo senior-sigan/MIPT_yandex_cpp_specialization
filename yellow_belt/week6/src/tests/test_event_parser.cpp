@@ -3,6 +3,7 @@
 #include <string>
 #include "../event_parser.h"
 #include "test_runner.h"
+#include "tests.h"
 
 using namespace std;
 
