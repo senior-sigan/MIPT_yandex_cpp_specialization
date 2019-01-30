@@ -1,6 +1,6 @@
 #include "test_runner.h"
 #include "tests.h"
-#include "../app.h"
+#include "app.h"
 #include <string>
 
 using namespace std;

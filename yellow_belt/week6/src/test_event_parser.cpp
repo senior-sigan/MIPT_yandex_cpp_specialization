@@ -1,7 +1,7 @@
 #include <sstream>
 #include <vector>
 #include <string>
-#include "../event_parser.h"
+#include "event_parser.h"
 #include "test_runner.h"
 #include "tests.h"
 
