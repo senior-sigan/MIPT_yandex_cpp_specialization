@@ -1,6 +1,6 @@
 #include <sstream>
-#include <vector>
 #include <string>
+#include <vector>
 #include "event_parser.h"
 #include "test_runner.h"
 #include "tests.h"

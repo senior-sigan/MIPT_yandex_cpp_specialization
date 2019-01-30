@@ -1,13 +1,13 @@
 #include "app.h"
-#include "date.h"
-#include "node.h"
-#include "event_parser.h"
-#include "condition_parser.h"
 #include <sstream>
+#include "condition_parser.h"
+#include "date.h"
+#include "event_parser.h"
+#include "node.h"
 
 using namespace std;
 
-void App::ReadLine(const std::string &line) {
+void App::ReadLine(const std::string& line) {
   istringstream is(line);
 
   string command;

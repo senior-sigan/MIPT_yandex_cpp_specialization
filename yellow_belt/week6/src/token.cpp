@@ -16,7 +16,7 @@ vector<Token> Tokenize(istream& cl) {
           date += cl.get();
         }
         if (i < 2) {
-          date += cl.get(); // Consume '-'
+          date += cl.get();  // Consume '-'
         }
       }
       tokens.push_back({date, TokenType::DATE});
@@ -31,8 +31,7 @@ vector<Token> Tokenize(istream& cl) {
         throw logic_error("Unknown token");
       }
     } else if (c == 'e') {
-      if (cl.get() == 'v' && cl.get() == 'e' && cl.get() == 'n' &&
-          cl.get() == 't') {
+      if (cl.get() == 'v' && cl.get() == 'e' && cl.get() == 'n' && cl.get() == 't') {
         tokens.push_back({"event", TokenType::COLUMN});
       } else {
         throw logic_error("Unknown token");

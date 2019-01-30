@@ -1,7 +1,7 @@
+#include <string>
+#include "app.h"
 #include "test_runner.h"
 #include "tests.h"
-#include "app.h"
-#include <string>
 
 using namespace std;
 

@@ -1,17 +1,18 @@
 #pragma once
 
+#include <algorithm>
 #include <iostream>
-#include <string>
-#include <vector>
 #include <map>
 #include <set>
+#include <sstream>
+#include <string>
+#include <vector>
 #include "date.h"
-#include <strstream>
-#include <algorithm>
 
 class Database {
   std::map<Date, std::set<std::string>> db;
   std::map<Date, std::vector<std::string>> db_ordered;
+
  public:
   void Add(const Date &date, const std::string &event);
 
@@ -20,10 +21,9 @@ class Database {
     int removed = 0;
     for (const auto &kv : db_ordered) {
       const auto &date = kv.first;
-      auto& vec = db_ordered[date];
-      auto to_delete = std::stable_partition(begin(vec), end(vec), [predicate, date](const std::string &ev) {
-        return predicate(date, ev);
-      });
+      auto &vec = db_ordered[date];
+      auto to_delete = std::stable_partition(begin(vec), end(vec),
+                                             [predicate, date](const std::string &ev) { return predicate(date, ev); });
       auto len = to_delete - begin(vec);
       removed += len;
       vec.erase(begin(vec), to_delete);
@@ -43,7 +43,7 @@ class Database {
       const auto &date = kv.first;
       for (const auto &ev : kv.second) {
         if (predicate(date, ev)) {
-          std::strstream ss;
+          std::stringstream ss;
           ss << date << " " << ev;
           res.emplace_back(ss.str());
         }

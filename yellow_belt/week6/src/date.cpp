@@ -22,8 +22,7 @@ Date ParseDate(std::istream &is) {
   return {year, month, day};
 }
 std::ostream &operator<<(std::ostream &os, const Date &date) {
-  os << setw(4) << setfill('0') << date.GetYear() <<
-     "-" << setw(2) << setfill('0') << date.GetMonth() <<
-     "-" << setw(2) << setfill('0') << date.GetDay();
+  os << setw(4) << setfill('0') << date.GetYear() << "-" << setw(2) << setfill('0') << date.GetMonth() << "-" << setw(2)
+     << setfill('0') << date.GetDay();
   return os;
 }
