@@ -6,4 +6,5 @@ void TestAll() {
   tr.RunTest(TestDateParser, "TestDateParser");
   tr.RunTest(TestParseEvent, "TestParseEvent");
   tr.RunTest(TestParseCondition, "TestParseCondition");
+  tr.RunTest(TestDatabase, "TestDatabase");
 }

@@ -7,14 +7,14 @@ void Database::Add(const Date &date, const std::string& event) {
 }
 
 std::string Database::Last(const Date &date) {
-  return "";
+  return "No entries";
 }
 
 void Database::Print(std::ostream &out) {
   for (const auto& kv : db) {
     const auto& date = kv.first;
     for (const auto& ev : kv.second) {
-      cout << date << " " << ev << endl;
+      out << date << " " << ev << endl;
     }
   }
 }
