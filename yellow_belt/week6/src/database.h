@@ -37,7 +37,7 @@ class Database {
   }
 
   template<typename BinaryPredicate>
-  std::vector<std::string> FindIf(BinaryPredicate predicate) {
+  std::vector<std::string> FindIf(BinaryPredicate predicate) const {
     std::vector<std::string> res;
     for (const auto &kv : db_ordered) {
       const auto &date = kv.first;
@@ -53,7 +53,7 @@ class Database {
     return res;
   }
 
-  std::string Last(const Date &date);
+  std::string Last(const Date &date) const;
 
-  void Print(std::ostream &out);
+  void Print(std::ostream &out) const;
 };

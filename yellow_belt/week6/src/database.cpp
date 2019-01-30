@@ -10,7 +10,7 @@ void Database::Add(const Date& date, const std::string& event) {
   }
 }
 
-std::string Database::Last(const Date& date) {
+std::string Database::Last(const Date& date) const {
   Date last = date;
   for (const auto& kv : db_ordered) {
     const auto& d = kv.first;
@@ -21,14 +21,15 @@ std::string Database::Last(const Date& date) {
     }
   }
 
-  auto events = db_ordered[last];
+  if (db_ordered.count(last) == 0) return "No entries";
+  auto events = db_ordered.at(last);
   if (events.empty()) return "No entries";
   ostringstream ss;
   ss << last << " " << events.at(events.size() - 1);
   return ss.str();
 }
 
-void Database::Print(std::ostream& out) {
+void Database::Print(std::ostream& out) const {
   for (const auto& kv : db_ordered) {
     const auto& date = kv.first;
     for (const auto& ev : kv.second) {

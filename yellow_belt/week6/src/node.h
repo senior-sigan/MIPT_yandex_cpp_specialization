@@ -6,7 +6,7 @@
 
 class Node {
  public:
-  virtual bool Evaluate(const Date &date, const std::string &s);
+  virtual bool Evaluate(const Date &date, const std::string &s) const;
   virtual ~Node() = default;
 };
 class EmptyNode : public Node {};
@@ -20,7 +20,7 @@ class DateComparisonNode : public Node {
 
  public:
   DateComparisonNode(const Comparison &cmp, const Date &date) : cmp(cmp), right_date(date) {}
-  bool Evaluate(const Date &date, const std::string &s) override;
+  bool Evaluate(const Date &date, const std::string &s) const override;
 };
 
 class EventComparisonNode : public Node {
@@ -29,7 +29,7 @@ class EventComparisonNode : public Node {
 
  public:
   EventComparisonNode(const Comparison &cmp, const std::string &value) : cmp(cmp), value(value) {}
-  bool Evaluate(const Date &date, const std::string &s) override;
+  bool Evaluate(const Date &date, const std::string &s) const override;
 };
 
 class LogicalOperationNode : public Node {
@@ -41,5 +41,5 @@ class LogicalOperationNode : public Node {
   LogicalOperationNode(const LogicalOperation &logical_operation, const std::shared_ptr<Node> &left,
                        const std::shared_ptr<Node> &right)
       : op(logical_operation), left(left), right(right) {}
-  bool Evaluate(const Date &date, const std::string &s) override;
+  bool Evaluate(const Date &date, const std::string &s) const override;
 };
