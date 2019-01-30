@@ -3,19 +3,12 @@ project(week6)
 
 set(CMAKE_CXX_STANDARD 14)
 
-include_directories(src)
+set(PROJECT_HEADERS_DIR ${PROJECT_SOURCE_DIR}/src)
+set(PROJECT_SOURCES_DIR ${PROJECT_SOURCE_DIR}/src)
 
-add_executable(week6
-        src/condition_parser.cpp
-        src/condition_parser.h
-        src/condition_parser_test.cpp
-        src/database.cpp
-        src/database.h
-        src/date.cpp
-        src/date.h
-        src/main.cpp
-        src/node.cpp
-        src/node.h
-        src/test_runner.h
-        src/token.cpp
-        src/token.h)
+file(GLOB_RECURSE HEADERS ${PROJECT_HEADERS_DIR}/*.h)
+file(GLOB_RECURSE SOURCES ${PROJECT_SOURCES_DIR}/*.cpp)
+
+include_directories(PROJECT_HEADERS_DIR)
+
+add_executable(week6 ${SOURCES} ${HEADERS})
