@@ -22,7 +22,6 @@ void TestDatabase() {
     app.ReadLine("Add 2017-07-08 8th of July");
     app.ReadLine("Add 2017-07-08 Someone's birthday");
     app.ReadLine("Del date == 2017-07-08");
-    app.ReadLine("Print");
   }
   cerr << "=============" << endl;
   {
